@@ -1,0 +1,148 @@
+{% extends "portfolio_app/base.html" %}
+{% load static %}
+
+{% block title %}Home | Konainverse{% endblock %}
+{% block nav_home %}active{% endblock %}
+
+{% block content %}
+
+<!-- ============ HERO ============ -->
+<section class="hero wrap">
+  <div class="hero-grid">
+
+    <div>
+      <p class="fn-label">$ whoami</p>
+      <h1 class="hero-name"><!-- Your Name --> Konain Shahzad</h1>
+      <p class="hero-role">Python Developer<span class="cursor"></span></p>
+      <p class="hero-intro">
+        <!-- Short introduction goes here. 2-3 sentences about who you are
+             and what you build. -->
+        Python developer turning ideas into 
+        working apps. Currently learning data 
+        science to build smarter solution with code and data.
+      </p>
+      <div class="hero-actions">
+        <a href="{% url 'projects' %}" class="btn btn-primary">View Projects</a>
+        <a href="{% url 'contact' %}" class="btn btn-ghost">Contact Me</a>
+      </div>
+    </div>
+
+    <!-- Profile photo, framed like an editor preview window -->
+    <div class="editor-window">
+      <div class="editor-titlebar">
+        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+        <span class="editor-filename"></span>
+      </div>
+      <div class="profile-frame">
+        <!-- Replace src with your own photo, e.g. {% static 'portfolio_app/images/profile.jpg' %} -->
+        <img src="{% static 'portfolio_app/images/pfp.png' %}" alt="Photo of Your Name">
+        <span class="frame-tag"></span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="section wrap" id="about">
+  <div class="section-head">
+    <p class="eyebrow">about.py</p>
+    <h2 class="section-title">A little about me</h2>
+    <p class="section-sub">Data Science Enthusiast | Python Developer | BSCS Student</p>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-card">
+      <h3>&gt; biography</h3>
+      <p>
+        <!-- Short biography, personal strengths, interests -->
+        I'm Konain Shahzad, an Aspiring Data Scientist and a Bachelor of Computer Science student at MITE. I enjoy solving real-world problems through technology and continuously expanding my knowledge in data science and software development. My journey began with a curiosity about how data can be transformed into meaningful insights, which led me to explore Python, SQL, and modern development frameworks.
+
+I have hands-on experience building projects ranging from web applications to AI-based systems and interactive games. I enjoy turning ideas into practical solutions while writing clean, efficient, and maintainable code.
+
+Beyond programming, I stay active through sports and gym training, which has helped me develop discipline, consistency, and teamwork. I believe my creativity, quick learning ability, problem-solving mindset, and communication skills enable me to contribute effectively in collaborative environments.
+
+
+      </p>
+      <p>
+        <!-- Career goal -->
+        <strong>Career goal:</strong> My goal is to become a Data Scientist and Machine Learning Engineer, using data to uncover insights, build intelligent solutions, and solve complex real-world problems that create meaningful impact.
+      </p>
+    </div>
+
+    <div class="about-card">
+      <h3>&gt; education</h3>
+      <ul class="timeline">
+        <li>
+          <span class="t-year">2024 – 2028</span>
+          <p class="t-title">Bachelor of Science in Computer Science (BSCS)
+            MITE</p>
+          <p class="t-desc">Currently pursuing my Bachelor's degree in Computer Science with a strong focus on Data Science, Artificial Intelligence, Python programming, database systems, and software development. Continuously strengthening both theoretical knowledge and practical skills through academic and personal projects.</p>
+        </li>
+        <li>
+          <span class="t-year">2022 – 2024</span>
+          <p class="t-title">Intermediate (Pre-Engineering)
+            SRE Majeed</p>
+          <p class="t-desc">Completed Higher Secondary Education with a Pre-Engineering background, building a solid foundation in mathematics, analytical thinking, and problem-solving.</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section class="section wrap" id="skills">
+  <div class="section-head">
+    <p class="eyebrow">skills.json</p>
+    <h2 class="section-title">Technical skills</h2>
+    <p class="section-sub">Tools and technologies I work with regularly.</p>
+  </div>
+
+  <div class="skills-grid">
+    {% for skill in skills %}
+      <div class="skill-card">
+        <div class="skill-top">
+          <span class="skill-name">{{ skill.name }}</span>
+          <span class="skill-pct">{{ skill.level }}%</span>
+        </div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width: {{ skill.level }}%;"></div></div>
+      </div>
+    {% empty %}
+      <!-- Static fallback — replace with your own skills or loop over a Skill model -->
+      <div class="skill-card">
+        <div class="skill-top"><span class="skill-name">Python</span><span class="skill-pct">90%</span></div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:90%;"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-top"><span class="skill-name">Django</span><span class="skill-pct">65%</span></div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:85%;"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-top"><span class="skill-name">SQL</span><span class="skill-pct">68%</span></div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:88%;"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-top"><span class="skill-name">Numpy</span><span class="skill-pct">75%</span></div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:75%;"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-top"><span class="skill-name">Pandas</span><span class="skill-pct">70%</span></div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:70%;"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-top"><span class="skill-name">Javascript</span><span class="skill-pct">55%</span></div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:65%;"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-top"><span class="skill-name">HTML & CSS</span><span class="skill-pct">85%</span></div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:65%;"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-top"><span class="skill-name">Power Bi</span><span class="skill-pct">75%</span></div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:65%;"></div></div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% endblock %}

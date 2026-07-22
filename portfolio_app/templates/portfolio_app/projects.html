@@ -1,0 +1,85 @@
+{% extends "portfolio_app/base.html" %}
+{% load static %}
+
+{% block title %}Projects | Konainverse{% endblock %}
+{% block nav_projects %}active{% endblock %}
+
+{% block content %}
+
+<section class="section wrap" style="border-top:none; padding-top:70px;">
+  <div class="section-head">
+    <p class="eyebrow">projects/</p>
+    <h2 class="section-title">Things I've built</h2>
+    <p class="section-sub">A selection of projects — personal, academic, and practice builds.</p>
+  </div>
+
+  <div class="projects-grid">
+    {% for project in projects %}
+      <div class="project-card">
+        <div class="project-thumb">
+          {% if project.image %}
+            <img src="{{ project.image.url }}" alt="{{ project.title }}">
+          {% else %}
+            <div class="thumb-placeholder">image</div>
+          {% endif %}
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">{{ project.title }}</h3>
+          <p class="project-desc">{{ project.description }}</p>
+          <div class="tech-tags">
+            {# 'technology' field stored as comma-separated text, e.g. "Django, SQLite, CSS" #}
+            <span class="tech-tag">{{ project.technology }}</span>
+          </div>
+          <a href="{{ project.project_link }}" class="project-link" target="_blank" rel="noopener">View project &rarr;</a>
+        </div>
+      </div>
+    {% empty %}
+      <!-- Static fallback cards — replace with your own 3+ projects,
+           or loop over a Project model from the database using the block above this comment -->
+      <div class="project-card">
+        <div class="project-thumb">
+  <img src="{% static 'portfolio_app/images/prj12.png' %}" alt="Portfolio Website">
+</div>
+        <div class="project-body">
+          <h3 class="project-title">Multiplayer guessing game</h3>
+          <p class="project-desc">Classic Pakistani 4 player online guessing game</p>
+          <div class="tech-tags">
+            <span class="tech-tag">Python</span><span class="tech-tag">Django</span><span class="tech-tag">Streamlit</span>
+          </div>
+          <a href="https://badshah-ka-wazeer-kon-4-player-game.streamlit.app/" class="project-link">View project &rarr;</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-thumb">
+  <img src="{% static 'portfolio_app/images/prj2.png' %}" alt="Portfolio Website">
+</div>
+        <div class="project-body">
+          <h3 class="project-title">ScoopVerse</h3>
+          <p class="project-desc">Ice cream parlour website for ice cream lovers build with django</p>
+          <div class="tech-tags">
+            <span class="tech-tag">Python</span><span class="tech-tag">Django</span>
+          </div>
+          <a href="https://github.com/konainshahzad/ScoopVerse-IceCream-Website.git" class="project-link">View project &rarr;</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-thumb">
+  <img src="{% static 'portfolio_app/images/prj3.jpg' %}" alt="Portfolio Website">
+</div>
+        <div class="project-body">
+          <h3 class="project-title">AI career recomendation system</h3>
+          <p class="project-desc">AI based career recomendation system that suggests careers based on user's data analysis</p>
+          <div class="tech-tags">
+            <span class="tech-tag">Python</span>
+          </div>
+          <a href="https://github.com/konainshahzad/AI-Career-Recommendation-System.git
+" class="project-link">View project &rarr;</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% endblock %}
